@@ -3,6 +3,16 @@
   import Counter from "./lib/Counter.svelte";
 
   let beltColor = "black";
+  let firstname = "Anh";
+  let lastname = "Le";
+
+  // Reactive
+  $: fullname = `${firstname} ${lastname}`
+  $: {
+    console.log(beltColor)
+    console.log(fullname)
+  }
+
   const handleClick = () => {
     beltColor = "orange";
   };
@@ -16,9 +26,11 @@
   <h1>Hello world!</h1>
 
   <Counter />
-  <p style="color:{beltColor}">{beltColor}</p>
-  <button on:click={handleClick}>Update belt color</button>
+  <p style="color:{beltColor}">{fullname} - {beltColor}</p>
+  <!-- <button on:click={handleClick}>Update belt color</button> -->
   <!-- <input type="text" on:input={handleInput} value={beltColor}> -->
+  <input type="text" bind:value={firstname} />
+  <input type="text" bind:value={lastname} />
   <input type="text" bind:value={beltColor} />
 </main>
 
