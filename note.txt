@@ -1,0 +1,2 @@
+One way binding: data truyền 1 chiều từ file tới file html
+2 way binding: data truyền theo 2 chiều
