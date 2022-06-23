@@ -1,10 +1,13 @@
-One way binding: data truyền 1 chiều từ file tới file html
-2 way binding: data truyền theo 2 chiều
-$: đánh dấu statement là reactive
+- One way binding: data truyền 1 chiều từ file tới file html
+- 2 way binding: data truyền theo 2 chiều
+bind:value, on:click, on:input
+- $: đánh dấu statement là reactive
 $:{...} là dùng cho nhiều reactive
-Loop:
+- Loop:
 {#each as <name> (<unique_key>)}
 ...
 {:else}
 ...
 {/each}
+- Inline function: () => {<function>}
+- class:<name class>={...}

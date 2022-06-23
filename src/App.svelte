@@ -1,16 +1,17 @@
 <script>
   import logo from "./assets/svelte.png";
   import Counter from "./lib/Counter.svelte";
+  import Modal from './Modal.svelte';
 
   let beltColor = "black";
   let firstname = "Anh";
   let lastname = "Le";
 
   // Reactive
-  $: fullname = `${firstname} ${lastname}`
+  $: fullname = `${firstname} ${lastname}`;
   $: {
-    console.log(beltColor)
-    console.log(fullname)
+    console.log(beltColor);
+    console.log(fullname);
   }
 
   const handleClick = () => {
@@ -19,14 +20,21 @@
   const handleInput = (e) => {
     beltColor = e.target.value;
   };
+  const handleDelete = (id) => {
+    people = people.filter((person) => {
+      return person.id != id;
+    });
+  };
 
   let people = [
-    {name: 'Anh', beltColor: 'blue', age: 26, id: 1},
-    {name: 'Bi', beltColor: 'red', age: 30, id: 2},
-    {name: 'Cherry', beltColor: 'yellow', age: 36, id: 3},
-  ]
-</script>
+    { name: "Anh", beltColor: "blue", age: 26, id: 1 },
+    { name: "Bi", beltColor: "red", age: 30, id: 2 },
+    { name: "Cherry", beltColor: "yellow", age: 36, id: 3 },
+  ];
 
+  let num = 20;
+</script>
+<Modal />
 <main>
   <img src={logo} alt="Svelte Logo" />
   <h1>Hello world!</h1>
@@ -41,9 +49,17 @@
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
+      {#if person.beltColor == "blue"}
+        <p><strong>Hello you!!!</strong></p>
+      {/if}
       <p>{person.age} years old, {person.beltColor} belt</p>
+      <button
+        on:click={() => {
+          handleDelete(person.id);
+        }}>Delete</button
+      >
     </div>
-    {:else}
+  {:else}
     <p>There are no people to show</p>
   {/each}
 </main>
