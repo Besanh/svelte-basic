@@ -1,7 +1,8 @@
 <script>
   import logo from "./assets/svelte.png";
   import Counter from "./lib/Counter.svelte";
-  import Modal from './Modal.svelte';
+  import Modal from "./Modal.svelte";
+  import PersonForm from "./PersonForm.svelte";
 
   let beltColor = "black";
   let firstname = "Anh";
@@ -33,13 +34,29 @@
   ];
 
   let num = 20;
+  let showModal = false;
+  const toggleModal = () => {
+    showModal = !showModal;
+  };
 </script>
-<Modal />
+
+<Modal
+  message="Hi I am prop value"
+  isPromo={true}
+  {showModal}
+  on:click={toggleModal}
+>
+  <PersonForm />
+  <div slot="title">
+    <h3>Add new Person</h3>
+  </div>
+</Modal>
 <main>
   <img src={logo} alt="Svelte Logo" />
   <h1>Hello world!</h1>
 
   <Counter />
+  <button on:click={toggleModal}>Open modal</button>
   <p style="color:{beltColor}">{fullname} - {beltColor}</p>
   <!-- <button on:click={handleClick}>Update belt color</button> -->
   <!-- <input type="text" on:input={handleInput} value={beltColor}> -->

@@ -11,3 +11,15 @@ $:{...} là dùng cho nhiều reactive
 {/each}
 - Inline function: () => {<function>}
 - class:<name class>={...}
+- Props: du lieu truyen tu input component vao
+- Event forwarding: event component cha truyền sang component con thì chỉ cần tên event
+VD: cha: <Counter on:click={<event>} />
+con: nhan on:click
+- Event modifiers: on:<event name>|<name>
+self: trigger khi event đúng element
+VD: on:click|self|once|preventDefault
+- Slot: vị trí đặt component con trong component cha
+Thêm nhiều slot khác nhau:
+cha: <div slot="<name>"></div>
+con: <slot name="<name>"></div>
+- bind:group

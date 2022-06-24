@@ -1,0 +1,12 @@
+- One way binding
+- 2 way binding
+- Creative
+- Loop
+- Condition
+- Props
+- Event handler
+- Inline function
+- Event forwarding
+- Event modifiers: https://svelte.dev/tutorial/event-modifiers
+- Slot: https://svelte.dev/tutorial/slots
+- bind:group: https://svelte.dev/docs#template-syntax-element-directives-bind-group
