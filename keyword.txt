@@ -10,3 +10,4 @@
 - Event modifiers: https://svelte.dev/tutorial/event-modifiers
 - Slot: https://svelte.dev/tutorial/slots
 - bind:group: https://svelte.dev/docs#template-syntax-element-directives-bind-group
+- Dispatch custom event: https://svelte.dev/docs#run-time-svelte-createeventdispatcher

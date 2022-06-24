@@ -28,15 +28,23 @@
   };
 
   let people = [
-    { name: "Anh", beltColor: "blue", age: 26, id: 1 },
-    { name: "Bi", beltColor: "red", age: 30, id: 2 },
-    { name: "Cherry", beltColor: "yellow", age: 36, id: 3 },
+    { name: "Anh", beltColor: "blue", age: 26, id: 1, skills: "" },
+    { name: "Bi", beltColor: "red", age: 30, id: 2, skills: "" },
+    { name: "Cherry", beltColor: "yellow", age: 36, id: 3, skills: "" },
   ];
 
   let num = 20;
   let showModal = false;
+
   const toggleModal = () => {
     showModal = !showModal;
+  };
+
+  const addPersons = (e) => {
+    // console.log(e.detail)
+    let person = e.detail;
+    people = [...people, person];
+    showModal = false
   };
 </script>
 
@@ -46,7 +54,7 @@
   {showModal}
   on:click={toggleModal}
 >
-  <PersonForm />
+  <PersonForm on:addPerson={addPersons} />
   <div slot="title">
     <h3>Add new Person</h3>
   </div>
@@ -70,6 +78,7 @@
         <p><strong>Hello you!!!</strong></p>
       {/if}
       <p>{person.age} years old, {person.beltColor} belt</p>
+      <p>{person.skills}</p>
       <button
         on:click={() => {
           handleDelete(person.id);
